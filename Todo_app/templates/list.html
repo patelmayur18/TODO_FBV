@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+To Do List
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-4 offset-4">
+    {% if todo_list %}
+    {% for todo in todo_list %}
+    <div class="card mt-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ todo.name }}</h5>
+            <p class="card-text">it's due {{ todo.due_date}}</p>
+            <a href="/{{todo.id}}/" class="btn btn-warning">Details</a>
+            <a href="/{{todo.id}}/update" class="btn btn-warning">Edit</a>
+            <a href="/{{todo.id}}/delete" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="card mt-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">No Todo's left..</h5>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}

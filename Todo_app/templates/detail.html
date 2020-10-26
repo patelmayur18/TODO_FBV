@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+To Do Details
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-4 offset-4">
+    <div class="card mt-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">The name of Todo :</h5>
+            <p>{{ todo_detail.name}}</p>
+            <h5 class="card-title">The Due Date :</h5>
+            <p>{{ todo_detail.due_date}}</p>
+            <a href="/{{todo_detail.id}}/update" class="btn btn-warning">Edit</a>
+            <a href="/{{todo_detail.id}}/delete" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+    {% endblock content %}
